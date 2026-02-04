@@ -45,6 +45,9 @@ importers:
       '@electron-forge/maker-flatpak':
         specifier: ^7.9.0
         version: 7.9.0
+      '@electron-forge/maker-rpm':
+        specifier: ^7.9.0
+        version: 7.11.1
       '@electron-forge/maker-squirrel':
         specifier: ^7.9.0
         version: 7.9.0
@@ -162,6 +165,10 @@ packages:
     resolution: {integrity: sha512-0YOz2Hl13qCM1cwXgcrfg+9dZ7rbM6mooxR30fUpzq08q4+69RW9BdNC6b/Cl1B7l2NO0C8sbDXWTkbPuZVFjg==}
     engines: {node: '>= 16.4.0'}
 
+  '@electron-forge/maker-base@7.11.1':
+    resolution: {integrity: sha512-yhZrCGoN6bDeiB5DHFaueZ1h84AReElEj+f0hl2Ph4UbZnO0cnLpbx+Bs+XfMLAiA+beC8muB5UDK5ysfuT9BQ==}
+    engines: {node: '>= 16.4.0'}
+
   '@electron-forge/maker-base@7.9.0':
     resolution: {integrity: sha512-u0jo2kaYRxh/Rai6DyFSGJcNLRVWxiKaGUjMhX1LrKolufUkCxxR4TEmv4Hvl03WTr9pQb06umlIrVMaNb+j9A==}
     engines: {node: '>= 16.4.0'}
@@ -172,6 +179,10 @@ packages:
 
   '@electron-forge/maker-flatpak@7.9.0':
     resolution: {integrity: sha512-LqFWp61+ozlioFtqu+UryKjdsIdv+BLunDDjMRcdoMqiAblURz8bRgqq8FAdshiUt+iq4NPz6K9N0dKtSjhvuA==}
+    engines: {node: '>= 16.4.0'}
+
+  '@electron-forge/maker-rpm@7.11.1':
+    resolution: {integrity: sha512-iEfJPRQQyaTqk2EbUfZgulChNWvxGXeYUH0xBX/r5cj1pL4vcJXt3jLMQBVn3mk/0Ytv9UWRs8R/XuNWX6sf2w==}
     engines: {node: '>= 16.4.0'}
 
   '@electron-forge/maker-squirrel@7.9.0':
@@ -208,6 +219,10 @@ packages:
     resolution: {integrity: sha512-kJzRLRaYmRa9D0e/PCnnhDChWhs3nipYgx3b4QFDVUFmbQ1ytBCmZnCO2vH0NXr7HZE3ozcAHm+Zw0TvEpXmeA==}
     engines: {node: '>= 16.4.0'}
 
+  '@electron-forge/shared-types@7.11.1':
+    resolution: {integrity: sha512-vvBWdAEh53UJlDGUevpaJk1+sqDMQibfrbHR+0IPA4MPyQex7/Uhv3vYH9oGHujBVAChQahjAuJt0fG6IJBLZg==}
+    engines: {node: '>= 16.4.0'}
+
   '@electron-forge/shared-types@7.9.0':
     resolution: {integrity: sha512-6jZF+zq3SYMnweQpgr5fwlSgOd2yOZ5qlfz/CgXyVljiv0e0UThzpOjfTLuwuVgZX7a60xV+h0mg1h82Glu3wQ==}
     engines: {node: '>= 16.4.0'}
@@ -231,6 +246,10 @@ packages:
   '@electron-forge/template-webpack@7.9.0':
     resolution: {integrity: sha512-ser22QczYGor7N6bnMUwexdWbLMNApr6zpBoT+Xfn6P4Ks67ttzcfkAges7GXHNjXwox4ePYZ3+D7cWQem5C4g==}
     engines: {node: '>= 16.4.0'}
+
+  '@electron-forge/tracer@7.11.1':
+    resolution: {integrity: sha512-tiB6cglVQFcSw9N8GRwVwZUeB9u0DOx2Mj7aFXBUsFLUYQapvVGv51tUSy/UAW5lvmubGscYIILuVko+II3+NA==}
+    engines: {node: '>= 14.17.5'}
 
   '@electron-forge/tracer@7.9.0':
     resolution: {integrity: sha512-7itsjW1WJQADg7Ly61ggI5CCRt+QDVx3HOZC1w69jMUtnipKyPRCbvTBf1oplsNqbIzZxceXdfex6W53YNehvA==}
@@ -1356,6 +1375,12 @@ packages:
     os: [darwin, linux]
     hasBin: true
 
+  electron-installer-redhat@3.4.0:
+    resolution: {integrity: sha512-gEISr3U32Sgtj+fjxUAlSDo3wyGGq6OBx7rF5UdpIgbnpUvMN4W5uYb0ThpnAZ42VEJh/3aODQXHbFS4f5J3Iw==}
+    engines: {node: '>= 10.0.0'}
+    os: [darwin, linux]
+    hasBin: true
+
   electron-squirrel-startup@1.0.1:
     resolution: {integrity: sha512-sTfFIHGku+7PsHLJ7v0dRcZNkALrV+YEozINTW8X1nM//e5O3L+rfYuvSW00lmGHnYmUjARZulD8F2V8ISI9RA==}
 
@@ -1715,12 +1740,12 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   glob@8.1.0:
     resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
     engines: {node: '>=12'}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   global-agent@3.0.0:
     resolution: {integrity: sha512-PT6XReJ+D07JvGoxQMkT6qji/jVNfX/h364XHZOWeRzy64sSFr+xJ5OX7LI3b4MPQzdL4H8Y8M0xzPpsVMwA8Q==}
@@ -2876,6 +2901,7 @@ packages:
   tar@6.2.1:
     resolution: {integrity: sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==}
     engines: {node: '>=10'}
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   temp@0.9.4:
     resolution: {integrity: sha512-yYrrsWnrXMcdsnu/7YMYAofM1ktpL5By7vZhf15CrXijWWrEYZks5AXBudalfSWJLlnen/QUJUB5aoB0kqZUGA==}
@@ -3312,6 +3338,15 @@ snapshots:
       - bluebird
       - supports-color
 
+  '@electron-forge/maker-base@7.11.1':
+    dependencies:
+      '@electron-forge/shared-types': 7.11.1
+      fs-extra: 10.1.0
+      which: 2.0.2
+    transitivePeerDependencies:
+      - bluebird
+      - supports-color
+
   '@electron-forge/maker-base@7.9.0':
     dependencies:
       '@electron-forge/shared-types': 7.9.0
@@ -3338,6 +3373,16 @@ snapshots:
       fs-extra: 10.1.0
     optionalDependencies:
       '@malept/electron-installer-flatpak': 0.11.4
+    transitivePeerDependencies:
+      - bluebird
+      - supports-color
+
+  '@electron-forge/maker-rpm@7.11.1':
+    dependencies:
+      '@electron-forge/maker-base': 7.11.1
+      '@electron-forge/shared-types': 7.11.1
+    optionalDependencies:
+      electron-installer-redhat: 3.4.0
     transitivePeerDependencies:
       - bluebird
       - supports-color
@@ -3425,6 +3470,16 @@ snapshots:
       - bluebird
       - supports-color
 
+  '@electron-forge/shared-types@7.11.1':
+    dependencies:
+      '@electron-forge/tracer': 7.11.1
+      '@electron/packager': 18.4.4
+      '@electron/rebuild': 3.7.2
+      listr2: 7.0.2
+    transitivePeerDependencies:
+      - bluebird
+      - supports-color
+
   '@electron-forge/shared-types@7.9.0':
     dependencies:
       '@electron-forge/tracer': 7.9.0
@@ -3483,6 +3538,10 @@ snapshots:
     transitivePeerDependencies:
       - bluebird
       - supports-color
+
+  '@electron-forge/tracer@7.11.1':
+    dependencies:
+      chrome-trace-event: 1.0.4
 
   '@electron-forge/tracer@7.9.0':
     dependencies:
@@ -4741,6 +4800,19 @@ snapshots:
       electron-installer-common: 0.10.4
       fs-extra: 9.1.0
       get-folder-size: 2.0.1
+      lodash: 4.17.21
+      word-wrap: 1.2.5
+      yargs: 16.2.0
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  electron-installer-redhat@3.4.0:
+    dependencies:
+      '@malept/cross-spawn-promise': 1.1.1
+      debug: 4.4.3
+      electron-installer-common: 0.10.4
+      fs-extra: 9.1.0
       lodash: 4.17.21
       word-wrap: 1.2.5
       yargs: 16.2.0

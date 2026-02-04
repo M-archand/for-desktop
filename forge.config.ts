@@ -2,6 +2,7 @@ import { MakerAppX } from "@electron-forge/maker-appx";
 import { MakerDeb } from "@electron-forge/maker-deb";
 import { MakerFlatpak } from "@electron-forge/maker-flatpak";
 import { MakerFlatpakOptionsConfig } from "@electron-forge/maker-flatpak/dist/Config";
+import { MakerRpm } from "@electron-forge/maker-rpm";
 import { MakerSquirrel } from "@electron-forge/maker-squirrel";
 import { MakerZIP } from "@electron-forge/maker-zip";
 import { FusesPlugin } from "@electron-forge/plugin-fuses";
@@ -24,6 +25,8 @@ const ASSET_DIR = "assets/desktop";
 /**
  * Build targets for the desktop app
  */
+const platform = process.env.PLATFORM?.toLowerCase();
+
 const makers: ForgeConfig["makers"] = [
   new MakerSquirrel({
     name: STRINGS.name,
@@ -40,8 +43,12 @@ const makers: ForgeConfig["makers"] = [
   new MakerZIP({}),
 ];
 
-// skip these makers in CI/CD
-if (!process.env.PLATFORM) {
+if (platform === "linux") {
+  makers.push(new MakerRpm({}));
+}
+
+// skip these makers in CI/CD by setting PLATFORM
+if (!platform) {
   makers.push(
     // must be manually built (freezes CI process)
     // not much use in being published anyhow

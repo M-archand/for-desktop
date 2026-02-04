@@ -5,6 +5,8 @@ jobs:
   build:
     name: Build RPM
     runs-on: ubuntu-latest
+    env:
+      PLATFORM: linux
 
     steps:
       - name: Checkout
