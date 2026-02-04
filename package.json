@@ -2,6 +2,7 @@
   "name": "stoat-desktop",
   "productName": "stoat-desktop",
   "version": "1.1.12",
+  "description": "Open source user-first chat platform.",
   "main": ".vite/build/main.js",
   "repository": "stoatchat/desktop",
   "scripts": {
