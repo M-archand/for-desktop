@@ -1,11 +1,9 @@
 on:
-  push:
-    branches:
-      - "**"
+  workflow_dispatch:
 
 jobs:
   build:
-    name: Build App
+    name: Build RPM
     runs-on: ubuntu-latest
 
     steps:
@@ -29,5 +27,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build
-        run: pnpm run package
+      - name: Install rpm tooling
+        run: sudo apt-get update && sudo apt-get install -y rpm
+
+      - name: Build RPM
+        run: pnpm run make -- --targets rpm
+
+      - name: Upload RPM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rpm
+          path: out/make/**/*.rpm
